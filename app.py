@@ -5,7 +5,9 @@ st.set_page_config(page_title="唱K要多少錢", page_icon="🎤")
 
 st.title("唱K要多少錢")
 st.caption("我用Python做了十個小時然後給咪咪教我放到網站上")
-
+st.caption("好樂迪板後店：https://www.holiday.com.tw/StoreInfo/StoreDetail.aspx?sid=119")
+st.caption("好樂迪威力卡優惠：https://www.holiday.com.tw/Act/powercard/index.aspx")
+st.caption("好樂迪壽星優惠：https://www.holiday.com.tw/Act/birthday/index.aspx")
 # --- 資料區 (完整的價格矩陣) ---
 week = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
 ds = [188, 118]
@@ -150,7 +152,7 @@ if calculate_btn:
         col1, col2 = st.columns(2)
         
         with col1:
-            st.header("一般計費結果")
+            st.header("一般會員計費")
             for res in normal_results:
                 time_str = f"{res['entry']+12} 點" if res['entry'] < 12 else f"{week[(week.index(res['day'])+1)%7]} {res['entry']-12} 點"
                 is_cheapest = "🔥 **最便宜!**" if res['price'] == min_p else ""
@@ -167,7 +169,8 @@ if calculate_btn:
 
 else:
 
-    st.info("請在左側填寫資訊後按「開算」")
+    st.info("手機版的話左上拉開可以選東西")
+
 
 
 
