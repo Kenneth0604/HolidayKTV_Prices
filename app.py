@@ -1,10 +1,10 @@
 import streamlit as st
 
 # 設定網頁標題與圖示
-st.set_page_config(page_title="好樂迪計費計算機", page_icon="🎤")
+st.set_page_config(page_title="唱K要多少錢", page_icon="🎤")
 
-st.title("🎤 好樂迪計費計算機 (網頁版)")
-st.caption("讓你算算去唱好樂迪到底要掏多少錢")
+st.title("唱K要多少錢")
+st.caption("我用Python做了十個小時然後給咪咪教我放到網站上")
 
 # --- 資料區 (完整的價格矩陣) ---
 week = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
@@ -166,4 +166,5 @@ if calculate_btn:
                 st.write(f"{res['name']} {time_str} 進場：每人 **{res['price']}** 元 {is_cheapest}")
 
 else:
+
     st.info("請在左側填寫資訊後按「開算」")
