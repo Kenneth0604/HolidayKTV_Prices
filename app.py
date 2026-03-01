@@ -40,10 +40,10 @@ bd2_prices = {
 
 # --- 側邊欄輸入介面 ---
 with st.sidebar:
-    st.header("⚙️ 輸入參數")
+    st.header("自己按一按")
     selected_days = st.multiselect("選擇星期幾：", week, default=["星期一"])
-    input_hours = st.number_input("唱幾小：", min_value=0, max_value=24, value=3)
-    input_people = st.number_input("幾個人：", min_value=0, max_value=100, value=1)
+    input_hours = st.number_input("唱幾小：", min_value=0, max_value=24, value=0)
+    input_people = st.number_input("幾個人：", min_value=0, max_value=100, value=0)
     
     is_drinking = st.radio("喝酒嗎：", ("我要先不", "喝爆"))
     limjew_val = 1 if is_drinking == "喝爆" else 0
@@ -150,14 +150,14 @@ if calculate_btn:
         col1, col2 = st.columns(2)
         
         with col1:
-            st.header("📊 一般計費結果")
+            st.header("一般計費結果")
             for res in normal_results:
                 time_str = f"{res['entry']+12} 點" if res['entry'] < 12 else f"{week[(week.index(res['day'])+1)%7]} {res['entry']-12} 點"
                 is_cheapest = "🔥 **最便宜!**" if res['price'] == min_p else ""
                 st.write(f"{res['day']} {time_str} 進場：每人 **{res['price']}** 元 {is_cheapest}")
 
         with col2:
-            st.header("🎂 壽星優惠方案")
+            st.header("壽星優惠方案")
             if not bd_results:
                 st.write("沒得用或沒人過生日 ㄐㄐ")
             for res in bd_results:
@@ -168,3 +168,4 @@ if calculate_btn:
 else:
 
     st.info("請在左側填寫資訊後按「開算」")
+
