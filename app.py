@@ -41,7 +41,7 @@ bd2_prices = {
 # --- 側邊欄輸入介面 ---
 with st.sidebar:
     st.header("自己按一按")
-    selected_days = st.multiselect("選擇星期幾：", week, default=["星期一"])
+    selected_days = st.multiselect("星期幾要唱：", week)
     input_hours = st.number_input("唱幾小：", min_value=0, max_value=24, value=0)
     input_people = st.number_input("幾個人：", min_value=0, max_value=100, value=0)
     
@@ -168,4 +168,5 @@ if calculate_btn:
 else:
 
     st.info("請在左側填寫資訊後按「開算」")
+
 
